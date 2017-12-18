@@ -21,12 +21,12 @@
       "user": "root",
       // Multi host is possible, just by passing IPs/hostname as an array
       "host": [
-        "107.170.120.37"
+        "188.166.126.140"
       ],
       // Branch
       "ref": "origin/master",
       // Git repository to clone
-      "repo": "git@github.com:tirthapokharel1/webapp.git",
+      "repo": "https://github.com/tirthapokharel1/webapp.git",
       // Path of the application on target servers
       "path": "~",
       // Commands to execute locally (on the same machine you deploy things)
