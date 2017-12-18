@@ -1,0 +1,47 @@
+{
+  // Applications part
+  "apps": [
+    {
+      "name": "webapp",
+      "script": "server.js",
+      "env": {
+        "COMMON_VARIABLE": "true"
+      },
+      // Environment variables injected when starting with --env production
+      // http://pm2.keymetrics.io/docs/usage/application-declaration/#switching-to-different-environments
+      "env_production": {
+        "NODE_ENV": "prod"
+      }
+    }
+  ],
+  // Deployment part
+  // Here you describe each environment
+  "deploy": {
+    "prod": {
+      "user": "root",
+      // Multi host is possible, just by passing IPs/hostname as an array
+      "host": [
+        "107.170.120.37"
+      ],
+      // Branch
+      "ref": "origin/master",
+      // Git repository to clone
+      "repo": "git@github.com:tirthapokharel1/webapp.git",
+      // Path of the application on target servers
+      "path": "~",
+      // Commands to execute locally (on the same machine you deploy things)
+      // Can be multiple commands separated by the character ";"
+      "pre-deploy-local": "echo 'This is a local executed command'",
+      // Commands to be executed on the server after the repo has been cloned
+      "post-deploy": "npm install && pm2 startOrRestart ecosystem.json --env prod",
+      // Environment variables that must be injected in all applications on this env
+      "env": {
+        "NODE_ENV": "prod",
+        "ENV":"prod",
+        "PORT":3000
+      }
+    },
+   
+    
+  }
+}
