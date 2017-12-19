@@ -3,7 +3,7 @@
   "apps": [
     {
       "name": "webapp",
-      "script": "server.js",
+      "script": "app.js",
       "env": {
         "COMMON_VARIABLE": "true"
       },
